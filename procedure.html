@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROUP 8</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap">
+</head>
+
+<body>
+    <section class="Sub-header">
+        <nav>
+            <a href="index.html" class="logo">KUKA
+                <i class="fab fa-staylinked"></i>ROBOT
+            </a>
+            <div class="nav-links" id="navLinks">
+                <!-- reposnive bar open and close -->
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aim.html">Aim</a></li>
+                    <li><a href="theory.html">Theory</a></li>
+                    <li><a href="pretest.html">Pretest</a></li>
+                    <li><a href="procedure.html">Procedure</a></li>
+                    <li><a href="simulation2.html">Simulation</a></li>
+                    <li><a href="postest.html">Posttest</a></li>
+                    <li><a href="references.html">References</a></li>
+                    <li><a href="contributions.html">Contributors</a></li>
+                    
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+            <!-- reposnive bar open and close -->
+        </nav>
+        <h1>PROCEDURE</h1>
+    </section>
+
+    <!-- About Us Section Start -->
+
+    <section class="about-us">
+        <h2> Task Augmentation </h2>
+        <ul style="list-style-type:disc; font-size: 22px;">
+            <li> The inverse kinematics (IK) solver is used to compute an initial joint configuration that achieves the desired end-effector pose specified by the input parameters.</li>
+            <li> The function augments the initial joint configuration by adjusting the angle of the first joint. </li>
+            <li> Later the function constructs a new homogeneous transformation matrix that retains the original end-effector pose. This ensures that the desired pose remains the same despite the adjustment in the joint angle.</li>
+            <li> The function re-solves the IK problem to find a new joint configuration that achieves the same end-effector pose while considering the adjusted first joint angle.</li>
+    </section>
+
+    <section class="about-us">
+        <h2> Pick and Place </h2>
+        <ul style="list-style-type:disc; font-size: 22px;">
+            <li> The robot model is loaded from a URDF file and its properties are configured.Pick and place positions are defined as homogeneous transformation matrices.</li>
+            <li> The IK solver is used to compute joint configurations for both the pick and place positions.</li>
+            <li> Linear interpolation is performed between the joint configurations of the pick and place positions to generate intermediate joint configurations.</li>
+            <li> These interpolated joint configurations form a trajectory for the robot to move smoothly from the pick to the place position. </li>
+            <li> Task augmentation is applied to adjust the first joint angle of the robot's configuration for both the pick and place positions.</li>
+        </ul>
+    </section>
+
+    <!-- About Us Section end -->
+
+    <!-- Footer Section start -->
+    <section class="footer">
+        
+        <p>Copyright © 2024 <a href="index.html"></a>. All Rights Reserved</p>
+    </section>
+    <!-- Footer Section end -->
+</body>
+<script src="script.js"></script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROUP 8</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap">
+</head>
+
+<body>
+    <section class="Sub-header">
+        <nav>
+            <a href="index.html" class="logo">KUKA
+                <i class="fab fa-staylinked"></i>ROBOT
+            </a>
+            <div class="nav-links" id="navLinks">
+                <!-- reposnive bar open and close -->
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aim.html">Aim</a></li>
+                    <li><a href="theory.html">Theory</a></li>
+                    <li><a href="pretest.html">Pretest</a></li>
+                    <li><a href="procedure.html">Procedure</a></li>
+                    <li><a href="simulation2.html">Simulation</a></li>
+                    <li><a href="postest.html">Posttest</a></li>
+                    <li><a href="references.html">References</a></li>
+                    <li><a href="contributions.html">Contributors</a></li>
+                    
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+            <!-- reposnive bar open and close -->
+        </nav>
+        <h1>THEORY</h1>
+    </section>
+
+    <!-- About Us Section Start -->
+
+    <section class="about-us">
+                <h2>INTRODUCTION</h2>
+                <p>Kuka robots, used in automotive manufacturing and material handling, benefit from this extension, improving their operational reach. A 7th degree of freedom enhances a 6-DOF robot's functionality so it is considerably extending the workspace of the robot.</p><br>
+                <h3> General Terminologies </h3>
+                <p><b>Revolute Joint:</b> Allows rotational movement around a single axis.It is analogous to a hinge that allows parts to rotate.</p>
+                <p><b>Link:</b> A rigid component that connects two joints.In a KUKA robot, links vary in length and are designed to provide the necessary reach and flexibility.</p> 
+                <p><b>End-Effector:</b> The tool or device attached to the end of the robot arm that interacts with the environment.</p>
+                <p><b>Base:</b> The fixed part of the robot that supports the entire structure and serves as the reference point for all robot movements.  </p>
+                <p><strong>Manipulator:</strong> The combination of joints and links that forms the robot arm. The manipulator is responsible for positioning the end-effector in the desired location and orientation.</p> 
+                <p><b>Actuator:</b> A device that produces movement in the joints. </p>
+                <p><b>Controller:</b> The computer system that manages the robot's movements. </p><br>
+                <h3>Rotation Matrix</h3>
+                <p>For a 7-DOF KUKA robot, the rotation matrix is a key component of the transformation matrix that describes the orientation of the end-effector with respect to the base frame.</p>
+                <img src="rot.png" alt="rotation">
+
+        
+    </section>
+
+    <section class="about-us">
+                <h2>DESCRIPTION</h2>
+                <p> The combination of rotary and articulated joints corresponds to the ball and socket joint of a human shoulder. Since the arm has one more degree of freedom than necessary, there are several possibilities or solutions for gripping or hitting an object. If there are no obstacles in the working area, the solution that requires the least distance to be travelled is chosen. This additional degree of freedom, represented by the redundancy circle, makes it possible, for example, to avoid obstacles or even to perform a zero space movement with unchanged tool position and direction </p>
+                <h3> Applications </h3>
+                <P> Some of the applications of 7 DOF Kuka robot are: </P>
+                <p><b>Automotive Manufacturing:</b> Robots can pick parts from a conveyor belt and place them onto a vehicle assembly line, such as installing components in the car chassis.</p>
+                <p><b>Welding:</b> Handling and positioning parts for precision welding tasks, ensuring consistent and high-quality welds.</p>
+                <p><b>PCB Assembly:</b> Picking electronic components and placing them onto printed circuit boards (PCBs) with high precision.</p>
+                <p><b>Lab Automation:</b> Handling test tubes, vials, and other lab equipment for automated testing and analysis processes in pharmaceutical research and development.</p>
+                <p><b>Vending Machines:</b> Robots can restock vending machines by picking and placing items accurately, ensuring they are always stocked.</p>
+               
+
+    </section>
+
+    <section class="about-us">
+                <h2>INVERSE KINEMATICS</h2>
+                <p>Inverse kinematics (IK) for a 7-degree-of-freedom (DOF) robot like the KUKA robotic arm involves determining the joint angles required to achieve a desired end-effector position and orientation in space. For a pick and place operation, the inverse kinematics solution ensures that the robot's end-effector reaches specific target points with a defined orientation, usually to grasp and move object accurately.</p><br>
+                <h3> DH Parameters </h3>
+                <p>The basis for the calculation of the inverse kinematics are the DH parameters.</p>
+                <img src="dh3.png" alt="dh3">
+                <br><br>
+                <h3> Transformation Matrices </h3>
+                <img src="tran.png" alt="transformation"><br><br><br>
+                <p> The final transformation matrix is: </p>
+                <img src="tran2.png" alt="transformation2">
+    </section>
+
+    <!-- About Us Section end -->
+
+    <!-- Footer Section start -->
+    <section class="footer">
+        
+        <p>Copyright © 2024 <a href="index.html"></a>. All Rights Reserved</p>
+    </section>
+    <!-- Footer Section end -->
+</body>
+<script src="script.js"></script>
+</html>

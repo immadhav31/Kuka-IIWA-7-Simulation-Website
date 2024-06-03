@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROUP 8</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        #quiz {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question h3 {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 0 auto;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .result h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .result p {
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="Sub-header">
+        <nav>
+            <a href="index.html" class="logo">KUKA
+                <i class="fab fa-staylinked"></i>ROBOT
+            </a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aim.html">Aim</a></li>
+                    <li><a href="theory.html">Theory</a></li>
+                    <li><a href="pretest.html">Pretest</a></li>
+                    <li><a href="procedure.html">Procedure</a></li>
+                    <li><a href="simulation2.html">Simulation</a></li>
+                    <li><a href="postest.html">Posttest</a></li>
+                    <li><a href="references.html">References</a></li>
+                    <li><a href="contributions.html">Contributors</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>POSTEST</h1>
+    </section>
+
+    <h2>KUKA 7-DOF Robotic Arm Quiz</h2>
+    <div id="quiz">
+        <div class="question">
+            <h3>1. What type of joint allows for rotational movement around a single axis in a KUKA robot?</h3>
+            <input type="radio" name="q1" value="a"> a) Prismatic joint<br>
+            <input type="radio" name="q1" value="b"> b) Revolute joint<br>
+            <input type="radio" name="q1" value="c"> c) Fixed joint<br>
+            <input type="radio" name="q1" value="d"> d) Ball-and-socket joint
+        </div>
+
+        <div class="question">
+            <h3>2. What is the primary function of the end-effector on a KUKA robot?</h3>
+            <input type="radio" name="q2" value="a"> a) To provide structural support<br>
+            <input type="radio" name="q2" value="b"> b) To execute tasks like picking and placing objects<br>
+            <input type="radio" name="q2" value="c"> c) To rotate the robot<br>
+            <input type="radio" name="q2" value="d"> d) To power the robot
+        </div>
+
+        <div class="question">
+            <h3>3. In a 7-DOF KUKA robot, what does the seventh degree of freedom provide?</h3>
+            <input type="radio" name="q3" value="a"> a) Additional linear movement<br>
+            <input type="radio" name="q3" value="b"> b) Increased rotational flexibility<br>
+            <input type="radio" name="q3" value="c"> c) Enhanced speed<br>
+            <input type="radio" name="q3" value="d"> d) Extra stability
+        </div>
+
+        <div class="question">
+            <h3>4. What is 'inverse kinematics' in the context of robotics?</h3>
+            <input type="radio" name="q4" value="a"> a) The study of forces and torques in a robot<br>
+            <input type="radio" name="q4" value="b"> b) The process of designing robot parts<br>
+            <input type="radio" name="q4" value="c"> c) Welding<br>
+            <input type="radio" name="q4" value="d"> d) Determining the joint angles required to achieve a desired end-effector position and orientation
+        </div>
+
+        <button onclick="checkResults()">Submit Answers</button>
+
+        <div id="results" class="result" style="display: none;">
+            <h2>Results</h2>
+            <p id="score"></p>
+            <p id="correctAnswers"></p>
+        </div>
+    </div>
+
+    <script>
+        function checkResults() {
+            var score = 0;
+            var totalQuestions = 4;
+
+            // Check answers
+            var answers = ["b", "b", "b", "d"];
+            var correctAnswersText = [
+                "1. b) Revolute joint",
+                "2. b) To execute tasks like picking and placing objects",
+                "3. b) Increased rotational flexibility",
+                "4. d) Determining the joint angles required to achieve a desired end-effector position and orientation"
+            ];
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+                if (selectedOption) {
+                    if (selectedOption.value === answers[i - 1]) {
+                        score++;
+                    }
+                }
+            }
+
+            // Display results
+            var resultContainer = document.getElementById('results');
+            var scoreDisplay = document.getElementById('score');
+            var correctAnswersDisplay = document.getElementById('correctAnswers');
+
+            scoreDisplay.innerHTML = "You scored " + score + " out of " + totalQuestions;
+            correctAnswersDisplay.innerHTML = "<br>Correct Answers:<br>" + correctAnswersText.join("<br>");
+            resultContainer.style.display = 'block';
+        }
+    </script>
+
+    <!-- Footer Section start -->
+    <section class="footer">
+        <p>Copyright © 2024 <a href="index.html"></a>. All Rights Reserved</p>
+    </section>
+    <!-- Footer Section end -->
+</body>
+<script src="script.js"></script>
+</html>

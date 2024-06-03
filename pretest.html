@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROUP 8</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        #quiz {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question h3 {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 0 auto;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .result h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .result p {
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="Sub-header">
+        <nav>
+            <a href="index.html" class="logo">KUKA
+                <i class="fab fa-staylinked"></i>ROBOT
+            </a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aim.html">Aim</a></li>
+                    <li><a href="theory.html">Theory</a></li>
+                    <li><a href="pretest.html">Pretest</a></li>
+                    <li><a href="procedure.html">Procedure</a></li>
+                    <li><a href="simulation2.html">Simulation</a></li>
+                    <li><a href="postest.html">Posttest</a></li>
+                    <li><a href="references.html">References</a></li>
+                    <li><a href="contributions.html">Contributors</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>PRETEST</h1>
+    </section>
+
+    <h2>KUKA 7-DOF Robotic Arm Quiz</h2>
+    <div id="quiz">
+        <div class="question">
+            <h3>1. What does "DOF" stand for in the context of robotics, specifically referring to the KUKA 7-DOF arm?</h3>
+            <input type="radio" name="q1" value="a"> a) Digital Operational Functionality<br>
+            <input type="radio" name="q1" value="b"> b) Degree of Freedom<br>
+            <input type="radio" name="q1" value="c"> c) Dynamic Operational Flexibility<br>
+            <input type="radio" name="q1" value="d"> d) Direct Operational Force
+        </div>
+
+        <div class="question">
+            <h3>2. What type of movements are represented by the degrees of freedom in a robotic arm?</h3>
+            <input type="radio" name="q2" value="a"> a) Linear movements only<br>
+            <input type="radio" name="q2" value="b"> b) Rotational movements only<br>
+            <input type="radio" name="q2" value="c"> c) Both linear and rotational movements<br>
+            <input type="radio" name="q2" value="d"> d) Static movements
+        </div>
+
+        <div class="question">
+            <h3>3. Which of the following best describes the concept of degrees of freedom (DOF) in robotics?</h3>
+            <input type="radio" name="q3" value="a"> a) The number of axes a robotic arm can move around<br>
+            <input type="radio" name="q3" value="b"> b) The amount of force a robotic arm can exert<br>
+            <input type="radio" name="q3" value="c"> c) The precision of movement in a robotic arm<br>
+            <input type="radio" name="q3" value="d"> d) The range of vision of a robotic arm's sensors
+        </div>
+
+        <div class="question">
+            <h3>4. Which of the following is a common application of a KUKA 7-DOF arm?</h3>
+            <input type="radio" name="q4" value="a"> a) 3D printing<br>
+            <input type="radio" name="q4" value="b"> b) Vacuum cleaning<br>
+            <input type="radio" name="q4" value="c"> c) Welding<br>
+            <input type="radio" name="q4" value="d"> d) Baking
+        </div>
+
+        <button onclick="checkResults()">Submit Answers</button>
+
+        <div id="results" class="result" style="display: none;">
+            <h2>Results</h2>
+            <p id="score"></p>
+            <p id="correctAnswers"></p>
+        </div>
+    </div>
+
+    <script>
+        function checkResults() {
+            var score = 0;
+            var totalQuestions = 4;
+
+            var answers = ["b", "c", "a", "c"];
+            var correctAnswersText = [
+                "1. b) Degree of Freedom",
+                "2. c) Both linear and rotational movements",
+                "3. a) The number of axes a robotic arm can move around",
+                "4. c) Welding"
+            ];
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+                if (selectedOption) {
+                    if (selectedOption.value === answers[i - 1]) {
+                        score++;
+                    }
+                }
+            }
+
+            var resultContainer = document.getElementById('results');
+            var scoreDisplay = document.getElementById('score');
+            var correctAnswersDisplay = document.getElementById('correctAnswers');
+
+            scoreDisplay.innerHTML = "You scored " + score + " out of " + totalQuestions;
+            correctAnswersDisplay.innerHTML = "<br>Correct Answers:<br>" + correctAnswersText.join("<br>");
+            resultContainer.style.display = 'block';
+        }
+    </script>
+
+    <section class="footer">
+        <p>Copyright © 2024 <a href="index.html"></a>. All Rights Reserved</p>
+    </section>
+</body>
+
+<script src="script.js"></script>
+</html>
